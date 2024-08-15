@@ -26,5 +26,14 @@ jobs:
         run: composer install --no-dev --no-interaction --prefer-dist
       
       - name: Create Deployment Artifact
-        run: tar czf app.tar.gz --exclude=*.git --exclude=node_modules *
+        env: 
+          GITHUB_SHA: ${{ github.sha }}
+        run: tar czf "${GITHUB_SHA}".tar.gz --exclude=*.git --exclude=node_modules *
+
+      - name: Store Artifact For Distribution
+        uses: actions/upload-artifact@v4
+        with: 
+          name: app-build
+          path: ${{ github.sha }}.tar.gz
+
 
