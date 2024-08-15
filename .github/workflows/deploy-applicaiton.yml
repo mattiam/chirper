@@ -3,7 +3,7 @@ name: Deploy Application
 on: 
   push:
     branches:
-      - master
+      - main
 
 jobs:
   create-deployment-artifacts:
@@ -15,4 +15,4 @@ jobs:
         run: |
           npm install
           npm run prod
-          
+
