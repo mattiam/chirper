@@ -42,7 +42,7 @@ jobs:
         id: export-deployment-matrix
         run: |
           ls -la
-          JSON="$(cat ./deployment-config.json)"
+          JSON="$(cat .github/workflows/deployment-config.json)"
           JSON="${JSON//'%'/'%25'}"
           JSON="${JSON//$'\n'/'%0A'}"
           JSON="${JSON//$'\r'/'%0D'}"
