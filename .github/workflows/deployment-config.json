@@ -5,7 +5,7 @@
         "username": "root",
         "password": "D!g!t4lOc3@npassword",
         "port": 22,
-        "beforeHooks": "",
+        "beforeHooks": "echo $GITH",
         "afterHooks": "",
         "path": "/var/www/html"
     }
