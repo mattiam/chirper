@@ -67,7 +67,7 @@ jobs:
           source: ${{ github.sha }}.tar.gz
           target: ${{ matrix.server.path }}/artifacts
       - name: Extract Archive and Create Directories
-        uses: appleboy/ssh-action@98930d398ce425af0148ea8a0e3295cd04fe2b7a
+        uses: appleboy/ssh-action@master
         env: 
           GITHUB_SHA: ${{ github.sha }}
         with:
@@ -93,7 +93,7 @@ jobs:
         server: ${{ fromJson(needs.create-deployment-artifacts.outputs.deployment-matrix) }}
     steps:
       - name: Run before hooks
-        uses: appleboy/ssh-action@98930d398ce425af0148ea8a0e3295cd04fe2b7a
+        uses: appleboy/ssh-action@master
         env: 
           GITHUB_SHA: ${{ github.sha }}
           RELEASE_PATH: ${{ matrix.server.path }}/releases/${{ github.sha }}
